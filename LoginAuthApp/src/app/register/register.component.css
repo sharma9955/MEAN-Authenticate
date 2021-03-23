@@ -1,0 +1,21 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-title {
+  text-align: center;
+}
+.button {
+  text-align: center;
+}
+.success {
+  background-color: rgb(80, 211, 108);
+  height: 40px;
+  padding-left: 10px;
+  text-align: center;
+  padding-top: 8px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 4px;
+}

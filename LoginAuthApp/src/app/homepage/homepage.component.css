@@ -1,0 +1,14 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-title {
+  text-align: center;
+}
+.button {
+  text-align: center;
+}
+.thead {
+  border: 1px solid white;
+}

@@ -1,0 +1,34 @@
+<div class="main">
+  <div class="card col-md-6 col-xs-6 mt-4">
+    <div class="card-body">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <th class="thead">User Details</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>FirstName</td>
+            <td>{{ userDetails?.fullname.split(" ")[0] | titlecase }}</td>
+          </tr>
+          <tr>
+            <td>LastName</td>
+            <td>{{ userDetails?.fullname.split(" ")[1] | titlecase }}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>{{ userDetails?.email }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div>
+        <button
+          (click)="Logout()"
+          class="btn btn-outline-primary btn-md round mt-3"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

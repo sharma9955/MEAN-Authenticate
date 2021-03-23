@@ -1,0 +1,105 @@
+<div class="main">
+  <div class="card col-md-6 col-xs-6 mt-4">
+    <div class="card-body">
+      <div class="card-title">
+        <h1 class="text-primary">User Registration</h1>
+      </div>
+      <form role="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="fullname">Full name</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Enter full name"
+            formControlName="fullname"
+            id="fullname"
+          />
+          <span
+            class="help-block text-danger"
+            *ngIf="
+              registerForm.get('fullname').touched &&
+              registerForm.get('fullname').value == ''
+            "
+            >Name is required</span
+          >
+          <span
+            class="help-block text-danger"
+            *ngIf="
+              !registerForm.get('fullname').valid &&
+              registerForm.get('fullname').dirty &&
+              registerForm.get('fullname').value !== ''
+            "
+            >Enter valid Email</span
+          >
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Enter Email"
+            formControlName="email"
+            id="email"
+          />
+          <span
+            class="help-block text-danger"
+            *ngIf="
+              registerForm.get('email').touched &&
+              registerForm.get('email').value == ''
+            "
+            >Email is required</span
+          >
+          <span
+            class="help-block text-danger"
+            *ngIf="
+              !registerForm.get('email').valid &&
+              registerForm.get('email').dirty &&
+              registerForm.get('email').value !== ''
+            "
+            >Enter valid Email</span
+          >
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            class="form-control"
+            type="password"
+            placeholder="Enter Password"
+            formControlName="password"
+            id="password"
+          />
+          <span
+            class="help-block text-danger"
+            *ngIf="
+              !registerForm.get('password').valid &&
+              registerForm.get('password').dirty &&
+              registerForm.get('password').value !== ''
+            "
+            >Password must contain 8 characters</span
+          >
+          <span
+            class="help-block text-danger"
+            *ngIf="
+              registerForm.get('password').touched &&
+              registerForm.get('password').value == ''
+            "
+            >Password required</span
+          >
+        </div>
+        <div class="form-group button">
+          <button
+            style="cursor: pointer"
+            class="btn btn-outline-primary btn-round"
+            type="submit"
+            [disabled]="!this.registerForm.valid"
+          >
+            Register
+          </button>
+        </div>
+        <div class="from-group">
+          <span>Already signed up?</span><a routerLink="/login">Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

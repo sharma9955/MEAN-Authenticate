@@ -1,0 +1,81 @@
+<div class="main">
+  <div class="card col-md-6 col-xs-6 mt-4">
+    <div class="card-body">
+      <div class="card-title">
+        <h1 class="text-primary">Login</h1>
+      </div>
+      <form role="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Enter Email"
+            formControlName="email"
+            id="email"
+          />
+          <span
+            class="help-block text-danger"
+            *ngIf="
+              loginForm.get('email').touched &&
+              loginForm.get('email').value == ''
+            "
+            >Email is required</span
+          >
+          <span
+            class="help-block text-danger"
+            *ngIf="
+              !loginForm.get('email').valid &&
+              loginForm.get('email').dirty &&
+              loginForm.get('email').value !== ''
+            "
+            >Enter valid Email</span
+          >
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            class="form-control"
+            type="password"
+            placeholder="Enter Password"
+            formControlName="password"
+            id="password"
+          />
+          <span
+            class="help-block text-danger"
+            *ngIf="
+              !loginForm.get('password').valid &&
+              loginForm.get('password').dirty &&
+              loginForm.get('password').value !== ''
+            "
+            >Password must contain 8 characters</span
+          >
+          <span
+            class="help-block text-danger"
+            *ngIf="
+              loginForm.get('password').touched &&
+              loginForm.get('password').value == ''
+            "
+            >Password required</span
+          >
+        </div>
+        <div class="form-group button">
+          <button
+            style="cursor: pointer"
+            class="btn btn-outline-primary btn-round"
+            type="submit"
+            [disabled]="!this.loginForm.valid"
+          >
+            Login
+          </button>
+        </div>
+        <div class="from-group">
+          <span>New user?</span><a routerLink="/register">Register</a>
+        </div>
+      </form>
+      <div class="alert" *ngIf="serverErrorMessages">
+        {{ serverErrorMessages }}
+      </div>
+    </div>
+  </div>
+</div>
